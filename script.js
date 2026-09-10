@@ -4,6 +4,7 @@ const question = document.getElementById("question");
 const subtext = document.getElementById("subtext");
 const buttons = document.querySelector(".buttons");
 const success = document.getElementById("success");
+const noGif = document.getElementById("noGif");
 
 let noCount = 0;
 
@@ -29,6 +30,9 @@ function escapeNo() {
     );
 
     question.textContent = messages[messageIndex];
+    if (noCount === 5) {
+    noGif.classList.add("show");
+}
 
     subtext.textContent = "هنوز فرصت داری...";
 
