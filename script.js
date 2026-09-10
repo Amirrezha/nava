@@ -4,7 +4,12 @@ const question = document.getElementById("question");
 const subtext = document.getElementById("subtext");
 const buttons = document.querySelector(".buttons");
 const success = document.getElementById("success");
-const noGif = document.getElementById("noGif");
+const funnyGif = document.querySelector(".no-gif");
+
+if (funnyGif) {
+    funnyGif.remove();
+}
+
 
 let noCount = 0;
 
@@ -30,8 +35,18 @@ function escapeNo() {
     );
 
     question.textContent = messages[messageIndex];
-    if (noCount === 5) {
-    noGif.classList.add("show");
+    if (noCount === 6) {
+
+    question.style.display = "none";
+    subtext.style.display = "none";
+
+    const gif = document.createElement("img");
+
+    gif.src = "funny.gif";
+    gif.alt = "Funny GIF";
+    gif.classList.add("no-gif");
+
+    question.insertAdjacentElement("afterend", gif);
 }
 
     subtext.textContent = "هنوز فرصت داری...";
@@ -124,7 +139,11 @@ noBtn.addEventListener(
 yesBtn.addEventListener(
     "click",
     function() {
+const funnyGif = document.querySelector(".no-gif");
 
+if (funnyGif) {
+    funnyGif.remove();
+}
         question.style.display = "none";
 
         subtext.style.display = "none";

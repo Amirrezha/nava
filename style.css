@@ -281,15 +281,12 @@ button {
 
 .success h2 {
     line-height: 1.8;
-}.no-gif {
-    display: none;
+}
+.no-gif {
+    display: block;
     width: 220px;
     max-width: 100%;
-    margin: 25px auto 0;
+    margin: 20px auto;
     border-radius: 18px;
-}
-
-.no-gif.show {
-    display: block;
     animation: successAppear 0.6s ease;
 }
