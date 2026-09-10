@@ -1,0 +1,277 @@
+@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    font-family: "Vazirmatn", sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+
+    background:
+        radial-gradient(circle at top left, #ffd6e7 0%, transparent 35%),
+        radial-gradient(circle at bottom right, #ffc1dc 0%, transparent 35%),
+        linear-gradient(135deg, #fff0f6, #ffd9e8);
+}
+
+/* کارت اصلی */
+
+.card {
+    position: relative;
+    z-index: 10;
+
+    width: min(90%, 520px);
+    padding: 55px 40px;
+
+    text-align: center;
+
+    background: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    border-radius: 30px;
+
+    box-shadow:
+        0 25px 60px rgba(180, 60, 100, 0.18),
+        inset 0 1px 0 rgba(255, 255, 255, 0.8);
+
+    animation: cardAppear 0.8s ease;
+}
+
+/* قلب بالای کارت */
+
+.heart-icon {
+    font-size: 55px;
+    color: #ed5b8c;
+    margin-bottom: 18px;
+
+    animation: heartbeat 1.4s infinite;
+}
+
+/* متن */
+
+h1 {
+    color: #4a2735;
+    font-size: 30px;
+    font-weight: 800;
+    margin-bottom: 12px;
+}
+
+#subtext {
+    color: #8c6876;
+    font-size: 16px;
+    margin-bottom: 35px;
+}
+
+/* دکمه‌ها */
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 18px;
+    min-height: 60px;
+}
+
+button {
+    border: none;
+    outline: none;
+
+    padding: 14px 32px;
+
+    border-radius: 50px;
+
+    font-family: inherit;
+    font-size: 17px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        opacity 0.3s ease;
+}
+
+/* آره */
+
+#yesBtn {
+    color: white;
+    background: linear-gradient(135deg, #ef5b91, #d93672);
+
+    box-shadow:
+        0 10px 25px rgba(217, 54, 114, 0.3);
+}
+
+#yesBtn:hover {
+    transform: translateY(-4px) scale(1.05);
+
+    box-shadow:
+        0 15px 30px rgba(217, 54, 114, 0.4);
+}
+
+/* نه */
+
+#noBtn {
+    color: #ffffff;
+    background: #8f526d;
+
+    border: 2px solid #743d56;
+
+    box-shadow:
+        0 8px 20px rgba(100, 40, 65, 0.25);
+}
+
+#noBtn:hover {
+    background: #743d56;
+
+    box-shadow:
+        0 12px 25px rgba(100, 40, 65, 0.35);
+}
+
+/* صفحه موفقیت */
+
+.success {
+    display: none;
+}
+
+.success.active {
+    display: block;
+    animation: successAppear 0.8s ease;
+}
+
+.success .big-heart {
+    font-size: 85px;
+    color: #e8427d;
+
+    animation: heartbeat 1s infinite;
+}
+
+.success h2 {
+    margin-top: 15px;
+
+    color: #4a2735;
+    font-size: 26px;
+    font-weight: 800;
+}
+
+.success p {
+    margin-top: 12px;
+
+    color: #8c6876;
+    font-size: 17px;
+}
+
+/* قلب‌های پس‌زمینه */
+
+.heart {
+    position: fixed;
+    bottom: -50px;
+
+    color: rgba(237, 91, 140, 0.35);
+
+    font-size: 20px;
+
+    pointer-events: none;
+
+    animation: floatHeart linear forwards;
+}
+
+/* انیمیشن‌ها */
+
+@keyframes heartbeat {
+    0%, 100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.15);
+    }
+}
+
+@keyframes floatHeart {
+    from {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(-110vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+@keyframes cardAppear {
+    from {
+        opacity: 0;
+        transform: translateY(30px) scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes successAppear {
+    from {
+        opacity: 0;
+        transform: scale(0.7);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* موبایل */
+
+@media (max-width: 600px) {
+
+    .card {
+        padding: 45px 25px;
+    }
+
+    h1 {
+        font-size: 25px;
+    }
+
+    #subtext {
+        font-size: 14px;
+    }
+
+    button {
+        padding: 13px 26px;
+        font-size: 16px;
+    }
+}.date-gif {
+    display: block;
+
+    width: min(100%, 320px);
+    max-height: 320px;
+
+    object-fit: contain;
+
+    margin: 0 auto 25px;
+
+    border-radius: 20px;
+
+    box-shadow:
+        0 15px 35px rgba(180, 60, 100, 0.2);
+}
+
+.success h2 {
+    line-height: 1.8;
+}
